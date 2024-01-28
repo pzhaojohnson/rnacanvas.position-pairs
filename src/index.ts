@@ -9,3 +9,6 @@ export { sorted };
 
 import { areStacked } from './areStacked';
 export { areStacked };
+
+import { Structure } from './Structure';
+export { Structure };
