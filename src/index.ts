@@ -12,3 +12,6 @@ export { areStacked };
 
 import { Structure } from './Structure';
 export { Structure };
+
+import { Stem } from './Stem';
+export { Stem };

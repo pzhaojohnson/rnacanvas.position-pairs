@@ -1,6 +1,6 @@
 {
   "name": "@rnacanvas/position-pairs",
-  "version": "1.5.0",
+  "version": "1.6.0",
   "description": "For working with pairs between positions in a sequence",
   "main": "./dist/index.js",
   "scripts": {
