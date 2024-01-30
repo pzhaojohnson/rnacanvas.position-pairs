@@ -15,3 +15,6 @@ export { Structure };
 
 import { Stem } from './Stem';
 export { Stem };
+
+import { Stems } from './Stems';
+export { Stems };
