@@ -15,5 +15,4 @@ can be accessed as named imports.
 // some example imports
 import type { PositionPair } from '@rnacanvas/position-pairs';
 import { parseDotBracket } from '@rnacanvas/position-pairs';
-import { areStacked } from '@rnacanvas/position-pairs';
 ```
