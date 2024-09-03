@@ -54,3 +54,21 @@ deepCopy([82, 108]); // [82, 108]
 
 deepCopy([[19, 2], [10, 30], [11, 29]]); // [[19, 2], [10, 30], [11, 29]]
 ```
+
+## `formPseudoknots()`
+
+Returns `true` if and only if
+the given pairs form any pseudoknots
+(including if they only form one pseudoknot).
+
+```javascript
+// a simple stem
+var pairs = [[3, 24], [4, 23], [5, 22], [6, 21]];
+
+formPseudoknots(pairs); // false
+
+// add an H-type pseudoknot
+pairs.push([9, 40], [10, 39], [11, 38], [12, 37]);
+
+formPseudoknots(pairs); // true
+```
