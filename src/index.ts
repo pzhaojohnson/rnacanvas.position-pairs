@@ -10,6 +10,9 @@ export { sorted };
 import { areStacked } from './areStacked';
 export { areStacked };
 
+import { formPseudoknots } from './formPseudoknots';
+export { formPseudoknots };
+
 import { Structure } from './Structure';
 export { Structure };
 
