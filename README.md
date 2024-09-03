@@ -41,4 +41,4 @@ will also generally handle the case
 of a position paired with itself
 (i.e., a position pair
 composed of the same position twice),
-though such a pairing has no biological underpinning.
+though such a pairing would have no biological underpinning.
