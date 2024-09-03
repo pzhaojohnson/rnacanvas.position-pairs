@@ -23,6 +23,14 @@ The `PositionPair` type
 represents a pairing
 between two positions in a sequence.
 
+Positions in a sequence
+use one-based indexing
+(as opposed to zero-based indexing).
+
+Thus, the first item in a sequence
+will have a position of `1`,
+and so on.
+
 ```typescript
 // the two numbers should be positive integers
 type PositionPair = [number, number];
