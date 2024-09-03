@@ -42,3 +42,15 @@ of a position paired with itself
 (i.e., a position pair
 composed of the same position twice),
 though such a pairing would have no biological underpinning.
+
+## `deepCopy()`
+
+Creates and returns a deep copy
+of an individual position pair
+or an array of position pairs.
+
+```javascript
+deepCopy([82, 108]); // [82, 108]
+
+deepCopy([[19, 2], [10, 30], [11, 29]]); // [[19, 2], [10, 30], [11, 29]]
+```
