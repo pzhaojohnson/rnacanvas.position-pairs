@@ -28,5 +28,8 @@ export { Linker };
 import { Linkers } from './Linkers';
 export { Linkers };
 
+import { mountainPlotTraversal } from './mountainPlotTraversal';
+export { mountainPlotTraversal };
+
 import { parseDotBracket } from './parseDotBracket';
 export { parseDotBracket };
