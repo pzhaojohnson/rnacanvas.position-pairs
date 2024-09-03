@@ -33,5 +33,11 @@ describe('`deepCopy()` function', () => {
     test('an empty array of position pairs', () => {
       expect(deepCopy([])).toStrictEqual([]);
     });
+
+    test('an array containing one position pair', () => {
+      let pairs = [[5, 29]];
+
+      expect(deepCopy(pairs)).toStrictEqual([[5, 29]]);
+    });
   });
 });
