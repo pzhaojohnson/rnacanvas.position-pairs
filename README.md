@@ -97,7 +97,7 @@ indicates the height of the mountain plot
 at that position in the structure).
 
 Mountain plot heights are calculated
-using the [ViennaRNA](https://www.tbi.univie.ac.at/~ronny/Leere/270038/tutorial/node23.html) definition.
+using the [ViennaRNA definition](https://www.tbi.univie.ac.at/~ronny/Leere/270038/tutorial/node23.html).
 
 This function will throw
 if the passed in structure contains pseudoknots.
