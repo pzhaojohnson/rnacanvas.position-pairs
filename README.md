@@ -75,10 +75,9 @@ formPseudoknots(pairs); // true
 
 ## `Structure`
 
-The `Structure` type represents a nucleic acid structure
-composed of position pairs
-between items in a sequence
-(e.g., a sequence of nucleobases).
+The `Structure` type
+is a way to express a nucleic acid structure
+using position pairs.
 
 ```typescript
 // a sequence of bases, for instance
