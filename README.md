@@ -72,3 +72,18 @@ pairs.push([9, 40], [10, 39], [11, 38], [12, 37]);
 
 formPseudoknots(pairs); // true
 ```
+
+## `Structure`
+
+The `Structure` type represents a nucleic acid structure
+composed of position pairs
+between items in a sequence
+(e.g., a sequence of nucleobases).
+
+```typescript
+// a sequence of bases, for instance
+type Sequence<T> = T[];
+
+// a sequence and pairs among the items in the sequence
+type Structure<T> = [Sequence<T>, PositionPair[]];
+```
