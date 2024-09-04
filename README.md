@@ -80,9 +80,34 @@ is a way to express a nucleic acid structure
 using position pairs.
 
 ```typescript
-// a sequence of bases, for instance
+// a sequence of nucleobases, for instance
 type Sequence<T> = T[];
 
 // a sequence and pairs among the items in the sequence
 type Structure<T> = [Sequence<T>, PositionPair[]];
+```
+
+## `mountainPlotTraversal()`
+
+The `mountainPlotTraversal()` function
+returns an array of numbers
+that is the mountain plot traversal of a given structure
+(i.e., the height of the mountain plot
+at each position along the structure).
+
+Mountain plot heights are calculated
+using the ViennaRNA definition.
+
+Since it is not possible to create a mountain plot
+for a structure that contains pseudoknots,
+this function will throw
+if the given structure contains pseudoknots.
+
+```javascript
+var seq = [...'1234567890ab'];
+var pairs = [[2, 11], [3, 10], [4, 9]];
+
+var mpt = mountainPlotTraversal(seq, pairs);
+
+mpt; // [0, 0, 1, 2, 3, 3, 3, 3, 2, 1, 0, 0]
 ```
