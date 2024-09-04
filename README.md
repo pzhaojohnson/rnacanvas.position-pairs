@@ -92,16 +92,15 @@ type Structure<T> = [Sequence<T>, PositionPair[]];
 The `mountainPlotTraversal()` function
 returns an array of numbers
 that is the mountain plot traversal of a given structure
-(i.e., the height of the mountain plot
-at each position along the structure).
+(i.e., each value in the returned array
+indicates the height of the mountain plot
+at that position in the structure).
 
 Mountain plot heights are calculated
-using the ViennaRNA definition.
+using the [ViennaRNA](https://www.tbi.univie.ac.at/~ronny/Leere/270038/tutorial/node23.html) definition.
 
-Since it is not possible to create a mountain plot
-for a structure that contains pseudoknots,
-this function will throw
-if the given structure contains pseudoknots.
+This function will throw
+if the passed in structure contains pseudoknots.
 
 ```javascript
 var seq = [...'1234567890ab'];
