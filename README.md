@@ -74,7 +74,7 @@ areKnotless(pairs); // false
 
 ## `knotless()`
 
-Creates and returns an entirely new array of pairs
+Creates and returns an entirely new array of pairs,
 with pairs creating pseudoknots having been omitted.
 
 Pairs are omitted/retained
