@@ -72,6 +72,25 @@ pairs.push([9, 40], [10, 39], [11, 38], [12, 37]);
 areKnotless(pairs); // false
 ```
 
+## `knotless()`
+
+Creates and returns an entirely new array of pairs
+with pairs creating pseudoknots having been omitted.
+
+Pairs are omitted/retained
+according to the incremental range heuristic
+reported by [Smit et al., 2008](https://www.ibi.vu.nl/programs/k2nwww/static/method.html).
+
+```javascript
+// form an H-type pseudoknot
+var pairs = [
+  [7, 18], [8, 17], [9, 16],
+  [11, 25], [12, 24], [13, 23],
+];
+
+knotless(pairs); // [[7, 18], [8, 17], [9, 16]]
+```
+
 ## `Structure`
 
 The `Structure` type
