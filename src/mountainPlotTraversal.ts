@@ -2,7 +2,7 @@ import type { Structure } from './Structure';
 
 import { partnersNotation } from './PartnersNotation';
 
-import { formPseudoknots } from './formPseudoknots';
+import { areKnotless } from './areKnotless';
 
 /**
  * Returns the mountain plot traversal for a given structure,
@@ -22,7 +22,7 @@ export function mountainPlotTraversal<T>(...structure: Structure<T>): number[] |
   let pairs = structure[1];
   let partners = partnersNotation(pairs);
 
-  if (formPseudoknots(pairs)) {
+  if (!areKnotless(pairs)) {
     throw new Error('Pseudoknot(s) encountered.');
   }
 

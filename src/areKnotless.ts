@@ -3,10 +3,10 @@ import type { PositionPair } from './PositionPair';
 import { partnersNotation } from './PartnersNotation';
 
 /**
- * Returns true if and only if the given pairs form any pseudoknots
- * (including if they only form one pseudoknot).
+ * Returns true if and only if
+ * the given pairs do not form any pseudoknots.
  */
-export function formPseudoknots(pairs: PositionPair[]): boolean {
+export function areKnotless(pairs: PositionPair[]): boolean {
   let partners = partnersNotation(pairs);
 
   let upstreamPartnersStack: number[] = [];
@@ -29,5 +29,5 @@ export function formPseudoknots(pairs: PositionPair[]): boolean {
     }
   });
 
-  return pseudoknotsDetected;
+  return !pseudoknotsDetected;
 }

@@ -1,23 +1,23 @@
-import { formPseudoknots } from './formPseudoknots';
+import { areKnotless } from './areKnotless';
 
-describe('`formPseudoknots()` function', () => {
+describe('`areKnotless()` function', () => {
   test('an empty array of pairs', () => {
     let pairs = [];
 
-    expect(formPseudoknots(pairs)).toBe(false);
+    expect(areKnotless(pairs)).toBe(true);
   });
 
   test('an array containing just one pair', () => {
     let pairs = [[6, 31]];
 
-    expect(formPseudoknots(pairs)).toBe(false);
+    expect(areKnotless(pairs)).toBe(true);
   });
 
   test('an array containing five unknotted pairs', () => {
     // some pairs are unsorted
     let pairs = [[8, 2], [36, 15], [16, 35], [20, 30], [21, 29]];
 
-    expect(formPseudoknots(pairs)).toBe(false);
+    expect(areKnotless(pairs)).toBe(true);
   });
 
   test('an H-type pseudoknot', () => {
@@ -26,7 +26,7 @@ describe('`formPseudoknots()` function', () => {
       [9, 35], [10, 34], [11, 33], [12, 32],
     ];
 
-    expect(formPseudoknots(pairs)).toBe(true);
+    expect(areKnotless(pairs)).toBe(false);
   });
 
   test('a pseudoknot spanning multiple stems', () => {
@@ -37,7 +37,7 @@ describe('`formPseudoknots()` function', () => {
       [73, 92], [74, 91], [75, 90],
     ];
 
-    expect(formPseudoknots(pairs)).toBe(true);
+    expect(areKnotless(pairs)).toBe(false);
   });
 
   test('a position paired with itself', () => {
@@ -48,11 +48,11 @@ describe('`formPseudoknots()` function', () => {
     // a position paired with itself
     pairs.push([9, 9]);
 
-    expect(formPseudoknots(pairs)).toBe(false);
+    expect(areKnotless(pairs)).toBe(true);
 
     // add a pseudoknot
     pairs.push([10, 33], [11, 32], [12, 31]);
 
-    expect(formPseudoknots(pairs)).toBe(true);
+    expect(areKnotless(pairs)).toBe(false);
   });
 });
