@@ -13,6 +13,9 @@ export { areStacked };
 import { areKnotless } from './areKnotless';
 export { areKnotless };
 
+import { knotless } from './knotless';
+export { knotless };
+
 import { Structure } from './Structure';
 export { Structure };
 
