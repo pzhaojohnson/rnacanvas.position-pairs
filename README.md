@@ -55,6 +55,23 @@ deepCopy([82, 108]); // [82, 108]
 deepCopy([[19, 2], [10, 30], [11, 29]]); // [[19, 2], [10, 30], [11, 29]]
 ```
 
+## `areConflicting()`
+
+Returns `true` if and only if
+the two pairs conflict with one another
+(i.e., they both share a position
+but they pair it with two different positions).
+
+```javascript
+areConflicting([10, 20], [10, 21]); // true
+areConflicting([10, 20], [9, 20]); // true
+
+areConflicting([10, 20], [11, 21]); // false
+
+// the two pairs are equal
+areConflicting([10, 20], [10, 20]); // false
+```
+
 ## `areKnotless()`
 
 Returns `true` if and only if
