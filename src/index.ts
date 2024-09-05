@@ -10,6 +10,9 @@ export { sorted };
 import { areStacked } from './areStacked';
 export { areStacked };
 
+import { areConflicting } from './areConflicting';
+export { areConflicting };
+
 import { areKnotless } from './areKnotless';
 export { areKnotless };
 
