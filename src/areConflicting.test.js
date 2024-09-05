@@ -19,4 +19,13 @@ describe('`areConflicting()` function', () => {
     expect(areConflicting([8, 31], [8, 31])).toBe(false);
     expect(areConflicting([8, 31], [31, 8])).toBe(false);
   });
+
+  test('a position paired with itself', () => {
+    expect(areConflicting([9, 9], [9, 20])).toBe(true);
+    expect(areConflicting([9, 9], [20, 9])).toBe(true);
+    expect(areConflicting([9, 20], [9, 9])).toBe(true);
+    expect(areConflicting([20, 9], [9, 9])).toBe(true);
+
+    expect(areConflicting([9, 9], [9, 9])).toBe(false);
+  });
 });
