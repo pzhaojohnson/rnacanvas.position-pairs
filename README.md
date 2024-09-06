@@ -95,6 +95,24 @@ areConflicting([10, 20], [11, 21]); // false
 areConflicting([10, 20], [10, 20]); // false
 ```
 
+## `areCrossing()`
+
+Returns `true` if and only if
+two pairs form a pseudoknot together.
+
+This would correspond to the lines of two base-pairs crossing each other
+in the circle diagram of a nucleic acid structure.
+
+```javascript
+areCrossing([10, 30], [20, 40]); // true
+areCrossing([40, 20], [30, 10]); // true
+
+areCrossing([10, 39], [11, 38]); // false
+
+// are equal
+areCrossing([22, 64], [22, 64]); // false
+```
+
 ## `areKnotless()`
 
 Returns `true` if and only if
