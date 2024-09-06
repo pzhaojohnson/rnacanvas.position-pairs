@@ -55,6 +55,29 @@ deepCopy([82, 108]); // [82, 108]
 deepCopy([[19, 2], [10, 30], [11, 29]]); // [[19, 2], [10, 30], [11, 29]]
 ```
 
+## `areEqual()`
+
+Returns `true` if and only if
+two pairs pair the same two positions together.
+
+```javascript
+areEqual([11, 22], [11, 22]); // true
+areEqual([11, 22], [22, 11]); // true
+
+areEqual([11, 22], [12, 21]); // false
+areEqual([11, 22], [11, 25]); // false
+```
+
+This function also handles the case
+of a position paired with itself.
+
+```javascript
+areEqual([11, 11], [11, 11]); // true
+
+areEqual([11, 11], [12, 12]); // false
+areEqual([11, 11], [11, 22]); // false
+```
+
 ## `areConflicting()`
 
 Returns `true` if and only if
