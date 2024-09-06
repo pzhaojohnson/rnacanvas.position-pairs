@@ -7,6 +7,9 @@ export { deepCopy };
 import { sorted } from './sorted';
 export { sorted };
 
+import { areEqual } from './areEqual';
+export { areEqual };
+
 import { areStacked } from './areStacked';
 export { areStacked };
 
