@@ -81,7 +81,7 @@ areEqual([11, 11], [11, 22]); // false
 ## `areConflicting()`
 
 Returns `true` if and only if
-the two pairs conflict with one another
+two pairs conflict with one another
 (i.e., they both share a position
 but they pair it with two different positions).
 
