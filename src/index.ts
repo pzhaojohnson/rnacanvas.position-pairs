@@ -16,6 +16,9 @@ export { areStacked };
 import { areConflicting } from './areConflicting';
 export { areConflicting };
 
+import { areCrossing } from './areCrossing';
+export { areCrossing };
+
 import { areKnotless } from './areKnotless';
 export { areKnotless };
 
