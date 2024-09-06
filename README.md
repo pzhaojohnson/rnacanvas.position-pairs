@@ -100,7 +100,7 @@ areConflicting([10, 20], [10, 20]); // false
 Returns `true` if and only if
 two pairs form a pseudoknot together.
 
-This would correspond to the lines of two base-pairs crossing each other
+This would correspond to the lines of the two pairs crossing each other
 in the circle diagram of a nucleic acid structure.
 
 ```javascript
