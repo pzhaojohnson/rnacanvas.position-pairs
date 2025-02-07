@@ -186,3 +186,23 @@ var mpt = mountainPlotTraversal(seq, pairs);
 
 mpt; // [0, 0, 1, 2, 3, 3, 3, 3, 2, 1, 0, 0]
 ```
+
+## `basePairs()`
+
+Returns an array of base-pairs
+corresponding to the input sequence of bases
+and array of position pairs.
+
+```javascript
+// bases can be any object
+var b1 = {};
+var b2 = {};
+var b3 = {};
+var b4 = {};
+
+var seq = [b1, b2, b3, b4];
+
+var bps = basePairs(seq, [[1, 4], [2, 3]]);
+
+bps; // [[b1, b4], [b2, b3]]
+```
