@@ -45,3 +45,6 @@ export { mountainPlotTraversal };
 
 import { parseDotBracket } from './parseDotBracket';
 export { parseDotBracket };
+
+import { basePairs } from './basePairs';
+export { basePairs };
