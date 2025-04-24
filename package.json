@@ -1,6 +1,6 @@
 {
   "name": "@rnacanvas/position-pairs",
-  "version": "2.5.0",
+  "version": "2.5.1",
   "description": "Work with pairs between positions in a sequence",
   "main": "./dist/index.js",
   "scripts": {
@@ -18,7 +18,7 @@
     "ts-loader": "^9.5.1",
     "typescript": "^5.3.3",
     "webpack": "^5.89.0",
-    "webpack-cli": "^5.1.4"
+    "webpack-cli": "^6.0.1"
   },
   "dependencies": {
     "@rnacanvas/math": "^1.6.1",
