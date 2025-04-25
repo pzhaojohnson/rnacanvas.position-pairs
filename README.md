@@ -149,6 +149,33 @@ var pairs = [
 knotless(pairs); // [[7, 18], [8, 17], [9, 16]]
 ```
 
+## `radializable()`
+
+Returns a deep copy of an array of position pairs
+with conflicting pairs, repeat pairs, self-pairs and pseudoknots
+having been omitted.
+
+The idea is to return a structure amenable to common RNA structure layout algorithms.
+
+Does not modify the input array of position pairs.
+
+```javascript
+// contains a pseudoknot
+var pairs = [[1, 20], [2, 19], [5, 30], [6, 29]];
+
+// add a repeat pair
+pairs.push([20, 1]);
+
+// add a conflicting pair
+// (position 2 is already paired)
+pairs.push([2, 50]);
+
+// add a self-pair
+pairs.push([7, 7]);
+
+radializable(pairs); // [[1, 20], [2, 19]]
+```
+
 ## `Structure`
 
 The `Structure` type
