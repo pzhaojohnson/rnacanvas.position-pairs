@@ -4,10 +4,11 @@ test('`function radializable()`', () => {
   // an empty array
   expect(radializable([])).toStrictEqual([]);
 
-  // returns a new array of position pairs
-  var pairs = [];
-  expect(radializable(pairs)).toStrictEqual([]);
+  // returns an entirely new array of position pairs
+  var pairs = [[1, 30], [2, 29], [3, 28]];
+  expect(radializable(pairs)).toStrictEqual([[1, 30], [2, 29], [3, 28]].reverse());
   expect(radializable(pairs)).not.toBe(pairs);
+  radializable(pairs).forEach(pr => expect(pairs.includes(pr)).toBeFalsy());
 
   // does not modify the input array of pairs
   // (contains two repeat pairs and some knotted pairs)
