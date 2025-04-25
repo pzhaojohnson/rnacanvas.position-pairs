@@ -157,6 +157,10 @@ having been omitted.
 
 The idea is to return a structure amenable to common RNA structure layout algorithms.
 
+Conflicting pairs and pseudoknots
+are omitted according to the incremental range heuristic
+reported by [Smit et al., 2008](https://www.ibi.vu.nl/programs/k2nwww/static/method.html).
+
 Does not modify the input array of position pairs.
 
 ```javascript
