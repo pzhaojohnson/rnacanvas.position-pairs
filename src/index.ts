@@ -25,6 +25,9 @@ export { areKnotless };
 import { knotless } from './knotless';
 export { knotless };
 
+import { radializable } from './radializable';
+export { radializable };
+
 import { Structure } from './Structure';
 export { Structure };
 
