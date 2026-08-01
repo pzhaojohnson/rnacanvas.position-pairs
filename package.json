@@ -1,6 +1,6 @@
 {
   "name": "@rnacanvas/position-pairs",
-  "version": "3.0.0",
+  "version": "4.0.0",
   "description": "Work with pairs between positions in a sequence",
   "main": "./dist/index.js",
   "scripts": {
@@ -8,7 +8,7 @@
     "build": "webpack"
   },
   "author": "pzhaojohnson",
-  "license": "MIT",
+  "license": "GPL-3.0-only",
   "devDependencies": {
     "@babel/core": "^7.23.7",
     "@babel/preset-env": "^7.23.7",
@@ -21,7 +21,7 @@
     "webpack-cli": "^7.2.2"
   },
   "dependencies": {
-    "@rnacanvas/math": "^1.6.1",
-    "@rnacanvas/value-check": "^1.6.3"
+    "@rnacanvas/math": "^3.0.0",
+    "@rnacanvas/value-check": "^2.7.0"
   }
 }
