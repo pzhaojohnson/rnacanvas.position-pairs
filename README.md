@@ -194,7 +194,7 @@ pairs.toArray(); // [[2, 7], [3, 6]]
 
 `[]`, `{}` and`<>` brackets are also recognized.
 
-(Pseudoknots are also allowed.)
+(Pseudoknots are allowed too.)
 
 ```javascript
 var pairs = parseDotBracket('.(.[.{.<.).].}.>.');
