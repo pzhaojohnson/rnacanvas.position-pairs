@@ -237,7 +237,7 @@ This function will throw for unbalanced dot-bracket notation.
 parseDotBracket('(((...))'); // throws
 
 // too many downstream brackets
-parseDotBracket('[[..((..]]]]..))'); // throws
+parseDotBracket('[[..((..]]]..))'); // throws
 ```
 
 ## `Structure`
