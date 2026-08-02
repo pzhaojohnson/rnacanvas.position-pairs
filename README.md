@@ -180,6 +180,56 @@ pairs.push([7, 7]);
 radializable(pairs); // [[1, 20], [2, 19]]
 ```
 
+## `parseDotBracket()`
+
+Parses dot-bracket notation.
+
+```javascript
+var pairs = parseDotBracket('.((..)).');
+
+[...pairs]; // [[2, 7], [3, 6]]
+
+pairs.toArray(); // [[2, 7], [3, 6]]
+```
+
+`[]`, `{}` and`<>` brackets are also recognized.
+
+(Pseudoknots are also allowed.)
+
+```javascript
+var pairs = parseDotBracket('.(.[.{.<.).].}.>.');
+
+[...pairs]; // [[2, 10], [4, 12], [6, 14], [8, 16]]
+
+pairs.toArray(); // [[2, 10], [4, 12], [6, 14], [8, 16]]
+
+// pairs for specific bracket types can also be accessed
+pairs['()']; // [[2, 10]]
+pairs['[]']; // [[4, 12]]
+pairs['{}']; // [[6, 14]]
+pairs['<>']; // [[8, 16]]
+```
+
+All whitespace is ignored in the input dot-bracket notation.
+
+Any non-bracket or otherwise unrecognized characters are treated as unpaired positions.
+
+```javascript
+var pairs = parseDotBracket('.((..)).');
+
+[...pairs]; // [[2, 7], [3, 6]]
+
+// whitespace is ignored
+var pairs = parseDotBracket('. ( ( . . ) ) .');
+
+[...pairs]; // [[2, 7], [3, 6]]
+
+// unrecognized characters are treated as unpaired positions
+var pairs = parseDotBracket('a((x-))_');
+
+[...pairs]; // [[2, 7], [3, 6]]
+```
+
 ## `Structure`
 
 The `Structure` type
