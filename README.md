@@ -230,6 +230,16 @@ var pairs = parseDotBracket('a((x-))_');
 [...pairs]; // [[2, 7], [3, 6]]
 ```
 
+This function will throw for unbalanced dot-bracket notation.
+
+```javascript
+// too many upstream brackets
+parseDotBracket('(((...))'); // throws
+
+// too many downstream brackets
+parseDotBracket('[[..((..]]]]..))'); // throws
+```
+
 ## `Structure`
 
 The `Structure` type
