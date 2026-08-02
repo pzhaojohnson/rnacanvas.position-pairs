@@ -1,55 +1,68 @@
 import { parseDotBracket } from './parseDotBracket';
 
-describe('parseDotBracket function', () => {
-  test('an empty string', () => {
-    expect([...parseDotBracket('')]).toStrictEqual([]);
-  });
+test('`function parseDotBracket()`', () => {
+  // empty or whitespace-only input
+  expect([...parseDotBracket('')]).toStrictEqual([]);
+  expect([...parseDotBracket('   \n\t  ')]).toStrictEqual([]);
 
-  test('dot-bracket notations with only unpaired positions', () => {
-    expect([...parseDotBracket('.')]).toStrictEqual([]);
-    expect([...parseDotBracket('.....')]).toStrictEqual([]);
-    expect([...parseDotBracket('.................')]).toStrictEqual([]);
-  });
+  // unrecognized characters are treated as unpaired positions
+  const unrecognized = parseDotBracket('abc123!?');
+  expect([...unrecognized]).toStrictEqual([]);
+  expect(unrecognized.toArray()).toStrictEqual([]);
+  expect(unrecognized['()']).toStrictEqual([]);
+  expect(unrecognized['[]']).toStrictEqual([]);
+  expect(unrecognized['{}']).toStrictEqual([]);
+  expect(unrecognized['<>']).toStrictEqual([]);
 
-  test('dot-bracket notations containing unrecognized character(s)', () => {
-    expect(() => parseDotBracket('...[[...]]....')).toThrow();
-    expect(() => parseDotBracket('...((<.....>)).....')).toThrow();
-    expect(() => parseDotBracket('1 ..(((...)))...')).toThrow();
-    expect(() => parseDotBracket('asdf')).toThrow();
-    expect(() => parseDotBracket('     ')).toThrow();
-  });
+  // simple bracket types and grouped results
+  const simple = parseDotBracket('(){}[]<>');
+  expect([...simple]).toStrictEqual([[1, 2], [3, 4], [5, 6], [7, 8]]);
+  expect(simple.toArray()).toStrictEqual([[1, 2], [3, 4], [5, 6], [7, 8]]);
+  expect(simple['()']).toStrictEqual([[1, 2]]);
+  expect(simple['{}']).toStrictEqual([[3, 4]]);
+  expect(simple['[]']).toStrictEqual([[5, 6]]);
+  expect(simple['<>']).toStrictEqual([[7, 8]]);
 
-  test('dot-bracket notations with unmatched upstream and/or downstream partner(s)', () => {
-    expect(() => parseDotBracket('(')).toThrow();
-    expect(() => parseDotBracket(')')).toThrow();
-    expect(() => parseDotBracket('(((((.....))))')).toThrow();
-    expect(() => parseDotBracket('((((.....)))))')).toThrow();
-    expect(() => parseDotBracket('...(((.....((((((....))).))....)...')).toThrow();
-    expect(() => parseDotBracket('...(((....((.....)))))....)))))))......')).toThrow();
-  });
+  // whitespace is ignored while preserving original sequence positions
+  const spaced = parseDotBracket('x ( ) y [ ] z { } w < >');
+  expect([...spaced]).toStrictEqual([[2, 3], [5, 6], [8, 9], [11, 12]]);
+  expect(spaced.toArray()).toStrictEqual([[2, 3], [5, 6], [8, 9], [11, 12]]);
 
-  test('dot-bracket notations with just one pair', () => {
-    expect([...parseDotBracket('()')]).toStrictEqual([[1, 2]]);
-    expect([...parseDotBracket('....(......)....')]).toStrictEqual([[5, 12]]);
-  });
+  // nested bracket structures are grouped independently by bracket type
+  const nested = parseDotBracket('([{}])');
+  expect([...nested]).toStrictEqual([[1, 6], [2, 5], [3, 4]]);
+  expect(nested.toArray()).toStrictEqual([[1, 6], [2, 5], [3, 4]]);
+  expect(nested['()']).toStrictEqual([[1, 6]]);
+  expect(nested['[]']).toStrictEqual([[2, 5]]);
+  expect(nested['{}']).toStrictEqual([[3, 4]]);
 
-  test('dot-bracket notations with multiple pairs', () => {
-    expect([...parseDotBracket('(((((......)))))')]).toStrictEqual([
-      [1, 16], [2, 15], [3, 14], [4, 13], [5, 12],
-    ]);
+  // repeated use of the same bracket type yields multiple pairs
+  const repeated1 = parseDotBracket('((()))');
+  expect([...repeated1]).toStrictEqual([[1, 6], [2, 5], [3, 4]]);
+  expect(repeated1.toArray()).toStrictEqual([[1, 6], [2, 5], [3, 4]]);
+  expect(repeated1['()']).toStrictEqual([[1, 6], [2, 5], [3, 4]]);
 
-    expect([...parseDotBracket('..(((....((((...))))....)))...(((...))).')]).toStrictEqual([
-      [3, 27], [4, 26], [5, 25],
-      [10, 20], [11, 19], [12, 18], [13, 17],
-      [31, 39], [32, 38], [33, 37],
-    ]);
+  const repeated2 = parseDotBracket('[] []');
+  expect([...repeated2]).toStrictEqual([[1, 2], [3, 4]]);
+  expect(repeated2.toArray()).toStrictEqual([[1, 2], [3, 4]]);
+  expect(repeated2['[]']).toStrictEqual([[1, 2], [3, 4]]);
 
-    expect([...parseDotBracket('...((((((((.....)))..)))...(((((...))))..))).....')]).toStrictEqual([
-      [4, 44], [5, 43],
-      [6, 24], [7, 23], [8, 22],
-      [9, 19], [10, 18], [11, 17],
-      [28, 42],
-      [29, 39], [30, 38], [31, 37], [32, 36],
-    ]);
-  });
+  // unbalanced notation throws
+  expect(() => parseDotBracket('(')).toThrow();
+  expect(() => parseDotBracket(')')).toThrow();
+  expect(() => parseDotBracket('((()))))')).toThrow();
+  expect(() => parseDotBracket('((([{}]))')).toThrow();
+  expect(() => parseDotBracket('[')).toThrow();
+  expect(() => parseDotBracket('{')).toThrow();
+  expect(() => parseDotBracket('<')).toThrow();
+
+  // letter-based bracket pairs are not recognized
+  expect(() => parseDotBracket('Aa')).not.toThrow();
+  expect([...parseDotBracket('Aa')]).toStrictEqual([]);
+  expect(parseDotBracket('Aa').toArray()).toStrictEqual([]);
+
+  // nested bracket structures with mixed bracket types are parsed in order
+  const nestedMixed = parseDotBracket('..((..[[[..{{.....)).}.]].}..].');
+  expect([...nestedMixed]).toStrictEqual([[3, 20], [4, 19], [7, 30], [8, 25], [9, 24], [12, 27], [13, 22]]);
+  expect(nestedMixed.toArray()).toStrictEqual([[3, 20], [4, 19], [7, 30], [8, 25], [9, 24], [12, 27], [13, 22]]);
 });
